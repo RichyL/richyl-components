@@ -6,7 +6,7 @@ class RichyL extends React.Component {
   }
   render() {
     return (
-      <h1>RichyL</h1>
+      <h1>{this.props.salutation} RichyL</h1>
     );
   }
 }
