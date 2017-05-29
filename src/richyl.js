@@ -3,7 +3,7 @@ import React from 'react';
 class RichyL extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {message: "no message"};
+    this.state = {message: "no message", prevMessage:"No previous message"};
     // This binding is necessary to make `this` work in the callback
     this.handleInput = this.handleInput.bind(this);
   }
@@ -11,8 +11,10 @@ class RichyL extends React.Component {
   handleInput(e) {
     console.log("e value="+e.target.value);
 
-    this.setState(
-      {message: e.target.value}
+    this.setState(prevState=>(
+      {message: e.target.value
+        ,prevMessage: prevState.message
+      })
                   );
   }
 
@@ -22,6 +24,7 @@ class RichyL extends React.Component {
       <h1>{this.props.salutation} RichyL</h1>
       <input type="text" onKeyUp={this.handleInput} />
       <h2>Message:{this.state.message}</h2>
+      <h2>Previous Message:{this.state.prevMessage}</h2>
       </div>
     );
   }
