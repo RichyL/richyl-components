@@ -8,24 +8,19 @@ class RichyL extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
-  handleInput(txt) {
-    console.log("txt="+txt.target.value);
-    let msg=txt.target.value;
+  handleInput(e) {
+    console.log("e value="+e.target.value);
 
-    this.setState(prevState  => ({
-      message: msg //<-- this works
-
-      /*message: txt.target.value  //<-- this does not works and gives
-      and gives an error of "TypeError: Cannot read property 'value' of null"
-      */
-    }));
+    this.setState(
+      {message: e.target.value}
+                  );
   }
 
   render() {
     return (
       <div>
       <h1>{this.props.salutation} RichyL</h1>
-      <input type="text" onBlur={evt=>this.handleInput(evt)} />
+      <input type="text" onKeyUp={this.handleInput} />
       <h2>Message:{this.state.message}</h2>
       </div>
     );
