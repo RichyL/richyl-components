@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {RichyL} from './richyl.js';
+import {RichyL,Toggle} from './richyl.js';
 
 
 class App extends Component {
@@ -16,7 +16,9 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <RichyL salutation="Hello"/>
-        <RichyL salutation="Good morning"/>
+
+        <hr />
+          <Toggle />
       </div>
     );
   }
